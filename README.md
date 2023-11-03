@@ -18,3 +18,19 @@ There are three required environment variables in order for the server to proper
 2) VENARI_DEVOPS_URL - Base URL to the Venari DevOps controller node
 3) VENARI_DEVOPS_APIKEY - API key used to communicate with the Venari DevOps Controller configured in the controller's web application in the Settings UI.
 
+# Setup
+
+````
+npm install
+````
+
+# Build
+````
+npm run build
+````
+
+# Run
+
+````
+npm run start
+````
