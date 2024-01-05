@@ -1,6 +1,7 @@
 import express from 'express';
 
 import axios, { AxiosResponse } from 'axios';
+import https from 'https'
 import crypto from 'crypto';
 import { WebHookEvent } from './api/models/web-hook-event';
 import { WebHookEventType } from './api/models/web-hook-event-type';
@@ -17,6 +18,14 @@ import { ExportedFindingData } from './api/models/exported-finding-data';
 const app = express();
 app.use(express.json());
 
+// Uncomment this out if talking to a untrusted tls/ssl certificate
+/*const httpsAgent = new https.Agent({
+    rejectUnauthorized: false,
+  })
+  axios.defaults.httpsAgent = httpsAgent
+  // eslint-disable-next-line no-console
+  console.log(`RejectUnauthorized is disabled.`)
+*/
 const initialize = async () => {
 
     let publicKey: Buffer;
@@ -156,7 +165,7 @@ const getPublicKey = async () => {
     return null;
 }
 
-const getFinding = async (jobId: string, findingId: number) => {
+const getFinding = async (jobId: string, findingId: string) => {
     let finding: ExportedFindingData | null = null;
     let resp: AxiosResponse<any>;
     try {

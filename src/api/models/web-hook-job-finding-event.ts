@@ -2,7 +2,7 @@
 /* eslint-disable */
 export interface WebHookJobFindingEvent {
   applicationName?: string | null;
-  findingId?: number;
+  findingId?: string | null;
   jobId?: string | null;
   jobName?: string | null;
   jobTemplateName?: string | null;
